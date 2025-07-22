@@ -21,6 +21,7 @@ const skillsData = [
 
 function Skills() {
   const [skills, setSkills] = useState(skillsData);
+  const isMobile = window.innerWidth <= 425;
 
   const fadeInAnimationVariants = {
     initial: {
@@ -117,28 +118,54 @@ function Skills() {
       );
     }
 
-    switch (Math.floor(latestScrollVal * 100)) {
-      case 8:
-        imageShow([]);
-        break;
-      case 10:
-        imageShow([0]);
-        break;
-      case 12:
-        imageShow([0, 1]);
-        break;
-      case 14:
-        imageShow([0, 1, 2]);
-        break;
-      case 16:
-        imageShow([0, 1, 2, 3]);
-        break;
-      case 18:
-        imageShow([0, 1, 2, 3, 4]);
-        break;
-      case 20:
-        imageShow([0, 1, 2, 3, 4, 5]);
-        break;
+    if(isMobile) {
+      switch (Math.floor(latestScrollVal * 100)) {
+        case 6:
+          imageShow([]);
+          break;
+        case 7:
+          imageShow([0]);
+          break;
+        case 8:
+          imageShow([0, 1]);
+          break;
+        case 9:
+          imageShow([0, 1, 2]);
+          break;
+        case 10:
+          imageShow([0, 1, 2, 3]);
+          break;
+        case 11:
+          imageShow([0, 1, 2, 3, 4]);
+          break;
+        case 12:
+          imageShow([0, 1, 2, 3, 4, 5]);
+          break;
+      }
+    } else {
+      switch (Math.floor(latestScrollVal * 100)) {
+        case 8:
+          imageShow([]);
+          break;
+        case 10:
+          imageShow([0]);
+          break;
+        case 12:
+          imageShow([0, 1]);
+          break;
+        case 14:
+          imageShow([0, 1, 2]);
+          break;
+        case 16:
+          imageShow([0, 1, 2, 3]);
+          break;
+        case 18:
+          imageShow([0, 1, 2, 3, 4]);
+          break;
+        case 20:
+          imageShow([0, 1, 2, 3, 4, 5]);
+          break;
+      }
     }
   });
 

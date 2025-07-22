@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import { useLoading, ThreeDots } from '@agney/react-loading';
+import { useScroll } from 'motion/react';
 
 function Nav({code}) {
 
@@ -10,8 +11,32 @@ function Nav({code}) {
       indicator: <ThreeDots width="50" color="white" />,
     });
 
+    const isMobile = window.innerWidth <= 425;
+
+    const [projectsActive, setProjectsActive] = useState(false)
+
+    const { scrollYProgress } = useScroll();
+
+    scrollYProgress.on("change", (scrollVal) => {
+
+      if(isMobile) {
+        if((scrollVal * 100) > 31 && 83 > (scrollVal * 100)) {
+          setProjectsActive(true);
+        } else {
+          setProjectsActive(false)
+        }
+      } else {
+        if((scrollVal * 100) > 40 && 90 > (scrollVal * 100)) {
+          setProjectsActive(true);
+        } else {
+          setProjectsActive(false)
+        }
+      }
+    })
+
   return (
     <div className="bg-zinc-900 w-full">
+
       {/* <div className="tabs absolute top-10 right-5 flex flex-col items-center mx-20">
             {["Home", "Skills", "", "Projects"].map((item, index) => {
               return item.length == 0 ? (
@@ -58,9 +83,15 @@ function Nav({code}) {
               ) : (
                 <a
                   key={index}
-                  className=" text-white text-s mx-5 flex items-center gap-1"
+                  className={`relative text-white text-s mx-5 flex items-center gap-1 ${(index == 3) ? `border-[1px] border-zinc-600 px-2 rounded ${projectsActive ? "bg-gradient-to-br from-purple-500 to-purple-800" : "bg-zinc-800"}` : ""}`}
                   href={`#${item}`}
                 >
+                  { index == 3 && (
+                    <span
+                    style={{ boxShadow: "0 0 0.8em #0efc26" }}
+                    className="absolute -right-1 -top-1 inline-block rounded-full w-2 h-2 bg-white animate-ping"
+                  ></span>
+                  )}
                   {" "}
                   {index == code && (
                     <span

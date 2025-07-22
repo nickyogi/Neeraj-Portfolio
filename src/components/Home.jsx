@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Nav from "./Nav";
 import Grid from "./Grid";
 import { Loader } from "./Loader"
+import FloatingTabsMenu from "./FloatingTabsMenu";
 
 // Lazy-loaded components
 const Skills = lazy(() => import("./Skills"));
@@ -41,7 +42,9 @@ function Home() {
   return (
     <div id="Home">
       <Nav code={0} />
-
+      
+      <FloatingTabsMenu />
+      
       <div className="w-full min-h-screen flex flex-col-reverse justify-end sm:flex-row fixed overflow-hidden">
         <span className="absolute -right-64 -top-72 sm:top-0 sm:right-0">
           <Grid />
