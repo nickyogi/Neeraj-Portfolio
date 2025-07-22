@@ -26,7 +26,7 @@ function StaggerText() {
     };
 
     return (
-        <div id="Projects" className="min-h-96 pt-32 px-4 md:px-0">
+        <div id="Projects" className="min-h-40 sm:min-h-96 pt-16 sm:pt-32 px-4 md:px-0">
             <div className="relative flex flex-col items-center justify-center text-white">
                 <div className="text-center sm:pr-32">
                     <h1 className="text-stroke  mr-3 pr-2  text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-none">

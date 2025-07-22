@@ -19,6 +19,10 @@ function Projects() {
     {title: "Dribble", description: "Clone is inspired by Dribbble’s attention to visual hierarchy, micro-interactions, and fluid user experience. From the animated card transitions to hover effects and grid layouts, the goal is to reflect the creativity and polish that make Dribbble stand out in the design community.", gitHub: "https://github.com/nickyogi/Minor-Projects/tree/main/Dribble_Responsive_Website", live : false, case : true, hover : "group-hover/projects:bg-[#1F1E24]", gradient: "bg-gradient-to-r from-[#F4C100] to-[#F04E00]", isGradient: false },
   ]);
 
+  const isMobile = window.innerWidth <= 425;
+
+
+
   const videoRefs = useRef([]);
 
   const {scrollYProgress} = useScroll();
@@ -41,43 +45,67 @@ function Projects() {
   const click = (count) => {
     setHovered(count);
     active(count);
-    setPos((18*count));
+    setPos(isMobile ? (32.4 * count - (count * 0.1) ) : (18 * count ) );
   }
 
   scrollYProgress.on("change", (scrollVal) => {
 
-    switch(Math.floor(scrollVal*100)) {
-      case 42 : 
-      setPos((18*0));
-      setHovered(0);
-      active(0);
-      break;
-      case 53 : 
-      setPos((18*1));
-      setHovered(1);
-      active(1);
-      break;
-      case 59 : 
-      setPos((18*2));
-      setHovered(2);
-      active(2);
-      break;
-      case 63 : 
-      setPos((18*3));
-      setHovered(3);
-      active(3);
-      break;
-      case 70 : 
-      setPos((18*4));
-      setHovered(4);
-      active(4);
-      break;
-      case 75 : 
-      setPos((18*5));
-      setHovered(5);
-      active(5);
-      break;
+    let val = Math.floor(scrollVal*100);
+
+    if(isMobile) {
+      if (val >= 25 && val < 39) {
+        setPos(32.4 * 0 - 0 * 0.1);
+        setHovered(0);
+        active(0);
+      } else if (val >= 39 && val < 46) {
+        setPos(32.4 * 1 - 1 * 0.1);
+        setHovered(1);
+        active(1);
+      } else if (val >= 46 && val < 53) {
+        setPos(32.4 * 2 - 2 * 0.1);
+        setHovered(2);
+        active(2);
+      } else if (val >= 53 && val < 60) {
+        setPos(32.4 * 3 - 3 * 0.1);
+        setHovered(3);
+        active(3);
+      } else if (val >= 60 && val < 67) {
+        setPos(32.4 * 4 - 4 * 0.1);
+        setHovered(4);
+        active(4);
+      } else if (val >= 67) {
+        setPos(32.4 * 5 - 5 * 0.1);
+        setHovered(5);
+        active(5);
+      }    
+    } else {
+      if (val >= 40 && val < 53) {
+  setPos(18 * 0);
+  setHovered(0);
+  active(0);
+} else if (val >= 53 && val < 59) {
+  setPos(18 * 1);
+  setHovered(1);
+  active(1);
+} else if (val >= 59 && val < 63) {
+  setPos(18 * 2);
+  setHovered(2);
+  active(2);
+} else if (val >= 63 && val < 70) {
+  setPos(18 * 3);
+  setHovered(3);
+  active(3);
+} else if (val >= 70 && val < 75) {
+  setPos(18 * 4);
+  setHovered(4);
+  active(4);
+} else if (val >= 75) {
+  setPos(18 * 5);
+  setHovered(5);
+  active(5);
+}
     }
+    
   });
 
     useEffect(() => {
@@ -94,17 +122,17 @@ function Projects() {
     }, [hovered]);
     
   return (
-    <div className='relative w-full bg-inherit pt-20' >
+    <div className='relative w-full bg-inherit pt-10 sm:pt-20' >
 
         { data.map((val, index) => (
             <Project key={index} val={val} count={index} click={click} mover={mover} />
         ))}
-        <div className='absolute w-full h-full mt-20 top-0 pointer-events-none'>
+        <div className='absolute w-full h-full sm:mt-20 top-[8.5rem] sm:top-0 pointer-events-none'>
           <motion.div 
           initial={{ y: pos, x: "-50%" }}
-          animate={{y: pos + `rem`}}
+          animate={{y: pos + "rem"}}
           transition={{ease: [0.76, 0, 0.24, 1], duration : 0.5}}
-          className='absolute h-[18rem] w-[24rem] left-[45vw] -translate-x-[50%] overflow-hidden pointer-events-none'>
+          className='absolute w-[22rem] h-[12rem] sm:h-[18rem] sm:w-[24rem] left-[49vw] sm:left-[45vw] overflow-hidden -translate-x-[50%]  pointer-events-none'>
             {[
             "arqitel.mp4",
             "ttr.mp4",
@@ -117,13 +145,13 @@ function Projects() {
               key={index}
               animate={{ y: -pos + "rem" }}
               transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-              className="h-full w-full rounded-2xl overflow-hidden"
+              className="w-[22rem] h-[12rem] sm:h-full sm:w-full  rounded-2xl mb-[20.3rem] sm:mb-0 overflow-hidden"
             >
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
                 muted
                 loop
-                src={`src/assets/videos/${src}`}
+                src={`/videos/${src}`}
                 className="w-full h-full object-cover"
               ></video>
             </motion.div>

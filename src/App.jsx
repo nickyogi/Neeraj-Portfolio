@@ -1,28 +1,35 @@
-import React from 'react';
-import Contact from './components/Contact';
-import CursorFollower from "./components/CursorFollower";
-import LocomotiveScroll from 'locomotive-scroll';
+import React, { lazy, Suspense, useEffect } from "react";
+import LocomotiveScroll from "locomotive-scroll";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
-import Home from './components/Home';
-import { Routes,Route } from 'react-router-dom';
+import { Loader } from "./components/Loader"
 
-
+const Home = lazy(() => import('./components/Home'));
+const Contact = lazy(() => import('./components/Contact'));
+// const CursorFollower = lazy(() => import('./components/CursorFollower')); // Optional
 
 function App() {
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+    });
 
-  const locomotiveScroll = new LocomotiveScroll();
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
 
   return (
     <>
-    {/* <div className="relative h-screen"> */}
-      {/* <CursorFollower /> */}
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-    {/* </div> */}
+      <Suspense fallback={ <Loader text="Hello !" /> }>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

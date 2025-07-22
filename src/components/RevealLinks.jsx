@@ -9,16 +9,16 @@ export const RevealLinks = ({text}) => {
   );
 };
 
-const DURATION = 0.25;
-const STAGGER = 0.025;
+const DURATION = 0.5;
+const STAGGER = 0.05;
 
-const FlipLink = ({ children, href }) => {
+const FlipLink = ({ children }) => {
   return (
-    <motion.a
+    <motion.div
       initial="initial"
       whileHover="hovered"
-      href={href}
-      className="relative block overflow-y-hidden mt-12 whitespace-nowrap text-4xl font-black uppercase sm:text-7xl md:text-8xl lg:text-[9rem]"
+      whileInView="inView"
+      className="relative block overflow-y-hidden mt-12 whitespace-nowrap text-8xl font-black uppercase sm:text-7xl md:text-8xl lg:text-[9rem]"
       style={{
         lineHeight: 0.75,
       }}
@@ -30,8 +30,11 @@ const FlipLink = ({ children, href }) => {
               initial: {
                 y: 0,
               },
-              hovered: {
+              inView: {
                 y: "-100%",
+              },
+              hovered: {
+                y: 0,
               },
             }}
             transition={{
@@ -53,8 +56,11 @@ const FlipLink = ({ children, href }) => {
               initial: {
                 y: "100%",
               },
-              hovered: {
+              inView: {
                 y: 0,
+              },
+              hovered: {
+                y: "100%",
               },
             }}
             transition={{
@@ -69,6 +75,6 @@ const FlipLink = ({ children, href }) => {
           </motion.span>
         ))}
       </div>
-    </motion.a>
+    </motion.div>
   );
 };

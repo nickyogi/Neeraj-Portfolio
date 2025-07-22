@@ -1,0 +1,9 @@
+{
+  "name": "Neeraj | Portfolio",
+  "short_name": "Neeraj",
+  "theme_color": "#8b5cf6",
+  "background_color": "#1f1e24",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}

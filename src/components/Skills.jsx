@@ -14,8 +14,8 @@ const skillsData = [
   { img: "/Icons/mongodb.png", title: "MongoDB", code: 3 },
   { img: "/Icons/sql.png", title: "SQL", code: 3 },
   { img: "/Icons/wordpress.png", title: "Wordpress", code: 4 },
-  { img: "/Icons/tailwind.png", title: "Tailwind CSS", code: 2 },
-  { img: "/Icons/photoshop.png", title: "Photoshop CSS", code: 4 },
+  { img: "/Icons/tailwind.png", title: "Tailwind", code: 2 },
+  { img: "/Icons/photoshop.png", title: "Photoshop", code: 4 },
   { img: "/Icons/VScode.png", title: "VS Code", code: 4 },
 ];
 
@@ -24,11 +24,9 @@ function Skills() {
 
   const fadeInAnimationVariants = {
     initial: {
-      // opacity: 0,
       y: 60,
     },
     animate: (index) => ({
-      // opacity: 1,
       y: 0,
       transition: {
         delay: 0.05 * index,
@@ -102,7 +100,6 @@ function Skills() {
       setSkills(skillsData);
     } else {
       updatedSkills = skillsData.filter((item) => item.code === c);
-      console.log(updatedSkills);
       setSkills(updatedSkills);
     }
   };
@@ -175,7 +172,7 @@ function Skills() {
           <button
             key={index}
             onClick={() => setSkillsData(item.code)}
-            className={`px-2 py-1 text-xs outline-none hover:text-purple-600 hover:bg-white ${
+            className={`px-2 py-1 text-[0.65rem] outline-none hover:text-purple-600 hover:bg-white ${
               item.isActive
                 ? "text-white bg-purple-600 font-bolder"
                 : "text-white"
@@ -187,7 +184,7 @@ function Skills() {
       </div>
 
       <div className="sm:min-h-[80vh] min-h-[60vh]">
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-5 sm:px-36 pb-10 mt-10">
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 sm:px-[5vw] pb-10 mt-10">
         {skills.map((item, index) => {
           return (
             <motion.div
@@ -204,7 +201,7 @@ function Skills() {
                 className="h-16 w-16 sm:h-40 sm:w-40 mx-auto drop-shadow-2xl"
                 alt="404 Image not found"
               />
-              <h4 className="text-center mt-5">{item.title}</h4>
+              <h4 className="text-sm sm:text-base text-center mt-5">{item.title}</h4>
             </motion.div>
           );
         })}

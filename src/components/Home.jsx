@@ -1,14 +1,17 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { TypeAnimation } from "react-type-animation";
-import Skills from "./Skills";
-import Cards from "./Cards";
-import Footer from "./Footer";
-import Endlinks from "./Endlinks";
-import Nav from "./Nav";
-import Projects from "./Projects";
-import StaggerText from "./StaggerText";
-import Grid from "./Grid";
 import { motion } from "framer-motion";
+import Nav from "./Nav";
+import Grid from "./Grid";
+import { Loader } from "./Loader"
+
+// Lazy-loaded components
+const Skills = lazy(() => import("./Skills"));
+const Cards = lazy(() => import("./Cards"));
+const Footer = lazy(() => import("./Footer"));
+const Endlinks = lazy(() => import("./Endlinks"));
+const Projects = lazy(() => import("./Projects"));
+const StaggerText = lazy(() => import("./StaggerText"));
 
 function Home() {
   const containerVariants = {
@@ -36,43 +39,49 @@ function Home() {
   };
 
   return (
-    <div id="Home" className="overflow-x-hidden">
+    <div id="Home">
       <Nav code={0} />
 
-      <div className="w-full min-h-screen flex flex-col-reverse justify-end  sm:flex-row fixed overflow-hidden">
+      <div className="w-full min-h-screen flex flex-col-reverse justify-end sm:flex-row fixed overflow-hidden">
         <span className="absolute -right-64 -top-72 sm:top-0 sm:right-0">
           <Grid />
         </span>
-        <span className="absolute -bottom-96 -left-80 sm:bottom-0  sm:-top-96 sm:-left-96">
+        <span className="absolute -bottom-96 -left-80 sm:bottom-0 sm:-top-96 sm:-left-96">
           <Grid />
         </span>
-        <span className="hidden sm:inline absolute -bottom-96 -left-72 ">
+        <span className="hidden sm:inline absolute -bottom-96 -left-72">
           <Grid />
         </span>
-        <motion.div variants={containerVariants}
-  initial="initial"
-  animate="animate" className="sm:w-1/2 relative z-40 h-full text-white p-6 sm:pl-24  sm:pt-32">
+
+        <motion.div
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          className="sm:w-1/2 relative z-40 h-full text-white p-6 sm:pl-24 sm:pt-32"
+        >
           <motion.span
             variants={fadeInAnimationVariants}
             className="font-semibold w-auto hidden sm:inline text-xs sm:text-lg rounded-xl sm:ml-0 px-2 sm:px-3 py-1 bg-purple-700"
           >
             Hello, I'm{" "}
           </motion.span>
+
           <motion.h1
             variants={fadeInAnimationVariants}
-            
             className="relative w-full font-bold text-center mt-5 sm:mt-0 sm:text-left text-4xl sm:text-6xl"
           >
-            <motion.span  variants={fadeInAnimationVariants}
-            className="absolute -top-6 -ml-2 sm:hidden font-semibold w-auto text-xs sm:text-lg rounded-xl sm:ml-0 px-2 sm:px-3 py-1 bg-purple-700">
+            <motion.span
+              variants={fadeInAnimationVariants}
+              className="absolute -top-6 -ml-2 sm:hidden font-semibold w-auto text-xs sm:text-lg rounded-xl sm:ml-0 px-2 sm:px-3 py-1 bg-purple-700"
+            >
               Hello, I'm{" "}
             </motion.span>
             Neeraj Kumar Yogi
           </motion.h1>
+
           <div className="flex flex-col items-center">
             <motion.p
               variants={fadeInAnimationVariants}
-              
               className="w-full text-xs text-center sm:text-left px-5 sm:px-0 font-medium tracking-wide mt-2 sm:mt-5 text-zinc-300 sm:pl-2 sm:pr-12"
             >
               I’m a web developer who loves building fast, responsive, and
@@ -81,11 +90,12 @@ function Home() {
               portfolio or a dynamic web app, I enjoy turning ideas into
               functional, polished digital products people love to use.
             </motion.p>
+
             <motion.div
               variants={fadeInAnimationVariants}
-              
               className="w-full mt-3 sm:mt-5 flex items-center justify-center gap-5 sm:pr-16"
             >
+ 
               <div className="p-2 cursor-pointer inline-block rounded-full border-[1px] border-zinc-100 hover:text-purple-600 hover:bg-white duration-200 transition-all">
                 <a
                   href="https://www.linkedin.com/in/neeraj-kumar-yogi/"
@@ -129,48 +139,32 @@ function Home() {
                   </svg>
                 </a>
               </div>
+          
             </motion.div>
+
             <motion.div
               variants={fadeInAnimationVariants}
-              
               className="inline-block mt-4 bg-purple-700 text-zinc-900 text-xs sm:text-lg sm:mt-10 sm:-ml-20 px-3 py-1 rounded-xl "
             >
               <TypeAnimation
                 sequence={[
-                  "Welcome to my portfolio",
-                  2000,
-                  "I create Full Stack Application ",
-                  2000,
-                  "I'm skilled in HTML, CSS ",
-                  2000,
-                  "I'm skilled in Javascript ",
-                  2000,
-                  "I love to create great UI/UX ",
-                  2000,
-                  "I'm skilled in React JS ",
-                  2000,
-                  "I'm skilled in Express JS ",
-                  2000,
-                  "I'm skilled in Node JS ",
-                  2000,
-                  "I'm skilled in MongoDB ",
-                  2000,
-                  "I love to create Web Applications ",
-                  2000,
-                  "I'm skilled in SQL ",
-                  2000,
-                  "I'm skilled in Tailwind CSS ",
-                  2000,
-                  "I'm skilled in Wordpress ",
-                  2000,
-                  "I rank websites using SEO ",
-                  2000,
-                  "I can build Frontend ",
-                  2000,
-                  "I can build Backend ",
-                  2000,
-                  "I can build Databases ",
-                  2000,
+                  "Welcome to my portfolio", 2000,
+                  "I create Full Stack Applications ", 2000,
+                  "I'm skilled in HTML, CSS ", 2000,
+                  "I'm skilled in Javascript ", 2000,
+                  "I love to create great UI/UX ", 2000,
+                  "I'm skilled in React JS ", 2000,
+                  "I'm skilled in Express JS ", 2000,
+                  "I'm skilled in Node JS ", 2000,
+                  "I'm skilled in MongoDB ", 2000,
+                  "I love to create Web Applications ", 2000,
+                  "I'm skilled in SQL ", 2000,
+                  "I'm skilled in Tailwind CSS ", 2000,
+                  "I'm skilled in Wordpress ", 2000,
+                  "I rank websites using SEO ", 2000,
+                  "I can build Frontend ", 2000,
+                  "I can build Backend ", 2000,
+                  "I can build Databases ", 2000,
                 ]}
                 wrapper="span"
                 speed={40}
@@ -184,9 +178,9 @@ function Home() {
                 repeat={Infinity}
               />
             </motion.div>
-            
           </div>
         </motion.div>
+
         <div className="mx-auto sm:w-1/2 sm:mx-0">
           <div className="h-64 w-64 sm:h-[40vw] sm:w-[40vw] pointer-events-none relative">
             <img
@@ -233,19 +227,36 @@ function Home() {
         </div>
       </div>
 
-      <div className=" relative z-40 mt-[100vh] bg-zinc-900 border-[1px] border-zinc-700 rounded-3xl pt-5">
+      <div className="relative z-40 mt-[100vh] bg-zinc-900 border-[1px] border-zinc-700 rounded-3xl pt-5">
         <div className="sticky top-0 z-50 bg-zinc-900">
           <Nav code={1} />
         </div>
 
-        <hr className="mx-5 h-[1px]  bg-zinc-700 outline-none border-none mb-16" />
+        <hr className="mx-5 h-[1px] bg-zinc-700 outline-none border-none mb-16" />
 
-        <Skills />
-        <StaggerText />
-        <Projects />
-        <Cards />
-        <Footer />
-        <Endlinks />
+        <Suspense fallback={<Loader text="Skills" />}>
+          <Skills />
+        </Suspense>
+
+        <Suspense fallback={<div className="text-white text-center"></div>}>
+          <StaggerText />
+        </Suspense>
+
+        <Suspense fallback={<Loader text="Projects" />}>
+          <Projects />
+        </Suspense>
+
+        <Suspense fallback={<div className="text-white text-center"></div>}>
+          <Cards />
+        </Suspense>
+
+        <Suspense fallback={<div className="text-white text-center"></div>}>
+          <Footer />
+        </Suspense>
+
+        <Suspense fallback={<div className="text-white text-center"></div>}>
+          <Endlinks />
+        </Suspense>
       </div>
     </div>
   );
