@@ -1,12 +1,12 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import { Routes, Route } from "react-router-dom";
-import './App.css';
-import { Loader } from "./components/Loader"
+import "./App.css";
+import { Loader } from "./components/Loader";
 
-const Home = lazy(() => import('./components/Home'));
-const Contact = lazy(() => import('./components/Contact'));
-// const CursorFollower = lazy(() => import('./components/CursorFollower')); // Optional
+const Home = lazy(() => import("./components/Home"));
+const Contact = lazy(() => import("./components/Contact"));
+const CursorFollower = lazy(() => import("./components/CursorFollower"));
 
 function App() {
   useEffect(() => {
@@ -22,12 +22,14 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={ <Loader text="Hello !" /> }>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Suspense>
+      <CursorFollower>
+        <Suspense fallback={<Loader text="Hello !" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
+      </CursorFollower>
     </>
   );
 }

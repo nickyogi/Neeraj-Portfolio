@@ -41,7 +41,7 @@ function Skills() {
 
   const [tabs, setTabs] = useState([
     { title: "All", code: 1, isActive: false },
-    { title: " Frontend Technologies", code: 2, isActive: false },
+    { title: " Frontend Tech", code: 2, isActive: false },
     { title: "Backend & Database", code: 3, isActive: false },
     { title: "Tools & Design", code: 4, isActive: false },
   ]);

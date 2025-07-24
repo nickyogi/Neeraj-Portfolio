@@ -43,7 +43,7 @@ const DotGrid = () => {
     for (let j = 0; j < GRID_HEIGHT; j++) {
       dots.push(
         <div
-          className="group cursor-crosshair rounded-full p-2 transition-colors hover:bg-slate-600"
+          className="group rounded-full p-2 transition-colors hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
         >
@@ -60,6 +60,7 @@ const DotGrid = () => {
   return (
     <div
       onMouseEnter={handleDotClick}
+      onClick={handleDotClick}
       style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
       className="grid w-fit"
     >
