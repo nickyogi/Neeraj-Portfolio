@@ -5,21 +5,7 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://neerajdeveloper.vercel.app/#Skills</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://neerajdeveloper.vercel.app/#Home</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://neerajdeveloper.vercel.app/#Projects</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://neerajdeveloper.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
