@@ -206,12 +206,12 @@ function Home() {
                   {" "}
                   <stop
                     id="stop1"
-                    stop-color="rgba(255, 255, 255, 1)"
+                    stopColor="rgba(255, 255, 255, 1)"
                     offset="0%"
                   ></stop>{" "}
                   <stop
                     id="stop2"
-                    stop-color="rgba(247.102, 247.102, 247.102, 1)"
+                    stopColor="rgba(247.102, 247.102, 247.102, 1)"
                     offset="100%"
                   ></stop>{" "}
                 </linearGradient>{" "}
@@ -222,7 +222,7 @@ function Home() {
                 width="100%"
                 height="100%"
                 transform="translate(50 50)"
-                stroke-width="1"
+                strokeWidth="1"
                 stroke="url(#sw-gradient)"
               ></path>{" "}
             </svg>
