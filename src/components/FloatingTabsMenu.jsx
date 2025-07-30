@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingTabsMenu = ({ code, projectsActive }) => {
   const [open, setOpen] = useState(false);
@@ -8,9 +8,9 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
 
   const containerVariants = {
     closed: {
-      height: 50,
-      width: 50,
-      borderRadius: "9999px",
+      height: 40,
+      width: 40,
+      // borderRadius: "9999px",
       transition: { type: "spring", duration: 0.4 },
     },
     open: {
@@ -45,18 +45,26 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
       >
         {open ? (
           // Up arrow (close)
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path d="M12 8.3685L3.03212 13.1162L3.9679 14.8838L12 10.6315L20.0321 14.8838L20.9679 13.1162L12 8.3685Z" />
           </svg>
         ) : (
           // Home icon (open)
-          <div className='relative animate-pulse'>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19Z" />
-          </svg>
-          
+          <div className="relative animate-pulse">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19Z" />
+            </svg>
           </div>
-
         )}
       </button>
 

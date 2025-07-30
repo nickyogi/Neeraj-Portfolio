@@ -78,3 +78,25 @@ body{
     -webkit-text-stroke: 1px white;
     color: transparent;
   }
+
+  /* Add this to your CSS file or inside a <style> block */
+@keyframes skeleton-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .skeleton {
+    background: linear-gradient(
+        110deg,
+        #2a2a2a 8%,
+        #3a3a3a 18%,
+        #2a2a2a 33%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2s infinite ease-in-out;
+  }
+  

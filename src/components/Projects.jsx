@@ -145,14 +145,17 @@ function Projects() {
               key={index}
               animate={{ y: -pos + "rem" }}
               transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-              className="w-[22rem] h-[12rem] sm:h-full sm:w-full  rounded-2xl mb-[20.3rem] sm:mb-0 overflow-hidden"
+              className="relative w-[22rem] h-[12rem] sm:h-full sm:w-full rounded-2xl mb-[20.3rem] sm:mb-0 overflow-hidden"
             >
+              <div className='z-30 absolute top-0 right-0 w-full h-full skeleton'>
+
+              </div>
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
                 muted
                 loop
                 src={`/videos/${src}`}
-                className="w-full h-full object-cover"
+                className="z-40 relative w-full h-full object-cover"
               ></video>
             </motion.div>
           ))}
