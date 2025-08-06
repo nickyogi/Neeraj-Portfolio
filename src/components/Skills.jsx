@@ -15,7 +15,7 @@ const skillsData = [
   { img: "/Icons/sql.png", title: "SQL", code: 3 },
   { img: "/Icons/wordpress.png", title: "Wordpress", code: 4 },
   { img: "/Icons/tailwind.png", title: "Tailwind", code: 2 },
-  { img: "/Icons/photoshop.png", title: "Photoshop", code: 4 },
+  { img: "/Icons/python.webp", title: "Python", code: 3 },
   { img: "/Icons/VScode.png", title: "VS Code", code: 4 },
 ];
 
