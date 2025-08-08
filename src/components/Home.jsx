@@ -128,7 +128,7 @@ function Home() {
               </div>
               <div className="p-2 cursor-pointer inline-block rounded-full border-[1px] border-zinc-100 hover:text-purple-600 hover:bg-white duration-200 transition-all">
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=nickyogi2143@gmail.com"
+                  href="mailto:nickyogi2143%40gmail.com?bcc=allhereatonce%40gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

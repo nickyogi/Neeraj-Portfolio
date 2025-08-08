@@ -30,7 +30,6 @@ function Skills() {
     animate: (index) => ({
       y: 0,
       transition: {
-        delay: 0.05 * index,
         ease: "easeIn",
       },
     }),
