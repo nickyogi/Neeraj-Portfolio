@@ -30,20 +30,17 @@ function Skills() {
 
   const fadeInAnimationVariants = {
     initial: {
-      y: 60,
-      opacity: 0,
+      y: 100,
+      // opacity: 0,
     },
     animate: (index) => ({
       y: 0,
-      opacity: 1,
+      // opacity: 1,
       transition: {
-        delay: 0.1 * index,
+        delay: 0.2 * index ,
         ease: "easeIn",
       },
     }),
-    transition: {
-      delay: 0.02,
-    },
   };
 
   const [tabs, setTabs] = useState([
@@ -227,7 +224,7 @@ function Skills() {
                 initial="initial"
                 animate={isInView ? "animate" : {}}  
                 // viewport={{ once: true }}
-                custom={index + 2}
+                custom={index}
                 className=" p-5 text-white rounded-lg h-fit border-[1px] border-zinc-700 shadow-sm cursor-pointer font-semibold hover:font-bold shadow-white hover:bg-zinc-800 hover:text-purple-600  hover:scale-110 duration-300"
               >
                 <img

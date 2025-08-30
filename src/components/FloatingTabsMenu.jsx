@@ -36,7 +36,7 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
       variants={containerVariants}
       animate={open ? "open" : "closed"}
       initial="closed"
-      className="absolute max-w-32 top-20 left-1 bg-zinc-900 shadow-xl overflow-hidden  text-white z-50 sm:hidden "
+      className="absolute max-w-32 top-20 left-1 bg-zinc-900 shadow-xl overflow-hidden  text-white z-40 sm:hidden "
     >
       {/* Toggle Button */}
       <button
