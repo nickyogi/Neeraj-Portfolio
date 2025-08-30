@@ -1,8 +1,9 @@
 import React from "react";
 import { motion, useScroll } from "motion/react";
 import { useState } from "react";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import Stripes from "./Stripes";
-
 
 const skillsData = [
   { img: "/Icons/html.png", title: "HTML", code: 2 },
@@ -15,7 +16,7 @@ const skillsData = [
   { img: "/Icons/sql.png", title: "SQL", code: 3 },
   { img: "/Icons/wordpress.png", title: "Wordpress", code: 4 },
   { img: "/Icons/tailwind.png", title: "Tailwind", code: 2 },
-  { img: "/Icons/python.webp", title: "Python", code: 3 },
+  { img: "/Icons/github.png", title: "Github", code: 4 },
   { img: "/Icons/VScode.png", title: "VS Code", code: 4 },
 ];
 
@@ -23,14 +24,20 @@ function Skills() {
   const [skills, setSkills] = useState(skillsData);
   const isMobile = window.innerWidth <= 425;
 
+  const triggerRef = useRef(null);
+  const isInView = useInView(triggerRef, {once: true});
+
+
   const fadeInAnimationVariants = {
     initial: {
       y: 60,
+      opacity: 0,
     },
     animate: (index) => ({
       y: 0,
+      opacity: 1,
       transition: {
-        delay: 0.05 * index,
+        delay: 0.1 * index,
         ease: "easeIn",
       },
     }),
@@ -118,7 +125,7 @@ function Skills() {
       );
     }
 
-    if(isMobile) {
+    if (isMobile) {
       switch (Math.floor(latestScrollVal * 100)) {
         case 6:
           imageShow([]);
@@ -171,7 +178,7 @@ function Skills() {
 
   return (
     <div id="Skills" className="w-full -mt-10 h-auto">
-      <div className="relative max-w-6xl mx-auto text-[30vw] text-white font-semibold leading-none tracking-tight select-none text-center">
+      <div  className="relative max-w-6xl mx-auto text-[30vw] text-white font-semibold leading-none tracking-tight select-none text-center">
         skills
         <div className="absolute Images w-full h-full top-0">
           {ImgData.map((item, index) => {
@@ -210,29 +217,31 @@ function Skills() {
         ))}
       </div>
 
-      <div className="sm:min-h-[80vh] min-h-[60vh]">
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 sm:px-[5vw] pb-10 mt-10">
-        {skills.map((item, index) => {
-          return (
-            <motion.div
-              key={index}
-              variants={fadeInAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              custom={index + 1.5}
-              className=" p-5 text-white rounded-lg h-fit border-[1px] border-zinc-700 shadow-sm cursor-pointer font-semibold hover:font-bold shadow-white hover:bg-zinc-800 hover:text-purple-600  hover:scale-110 duration-300"
-            >
-              <img
-                src={item.img}
-                className="h-16 w-16 sm:h-40 sm:w-40 mx-auto drop-shadow-2xl"
-                alt="404 Image not found"
-              />
-              <h4 className="text-sm sm:text-base text-center mt-5">{item.title}</h4>
-            </motion.div>
-          );
-        })}
-      </div>
+      <div ref={triggerRef} className="sm:min-h-[80vh] min-h-[60vh]">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 sm:px-[5vw] pb-10 mt-10">
+          {skills.map((item, index) => {
+            return (
+              <motion.div
+                key={index}
+                variants={fadeInAnimationVariants}
+                initial="initial"
+                animate={isInView ? "animate" : {}}  
+                // viewport={{ once: true }}
+                custom={index + 2}
+                className=" p-5 text-white rounded-lg h-fit border-[1px] border-zinc-700 shadow-sm cursor-pointer font-semibold hover:font-bold shadow-white hover:bg-zinc-800 hover:text-purple-600  hover:scale-110 duration-300"
+              >
+                <img
+                  src={item.img}
+                  className="h-16 w-16 sm:h-40 sm:w-40 mx-auto drop-shadow-2xl"
+                  alt="404 Image not found"
+                />
+                <h4 className="text-sm sm:text-base text-center mt-5">
+                  {item.title}
+                </h4>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
 
       <Stripes />

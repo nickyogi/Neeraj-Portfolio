@@ -36,6 +36,21 @@ const DotGrid = () => {
     });
   };
 
+   // simple throttle helper
+   const throttle = (func, limit) => {
+    let inThrottle;
+    return function (...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  };
+
+  // wrap your animation function in throttle (e.g., 500ms window)
+  const throttledHandleClick = throttle(handleDotClick, 5000);
+
   const dots = [];
   let index = 0;
 
@@ -59,8 +74,8 @@ const DotGrid = () => {
 
   return (
     <div
-      onMouseEnter={handleDotClick}
-      onClick={handleDotClick}
+      onMouseEnter={throttledHandleClick}
+      onClick={throttledHandleClick}
       style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, 1fr)` }}
       className="grid w-fit"
     >
