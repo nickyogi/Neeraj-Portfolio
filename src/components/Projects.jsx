@@ -134,12 +134,12 @@ function Projects() {
           transition={{ease: [0.76, 0, 0.24, 1], duration : 0.5}}
           className='absolute w-[22rem] h-[12rem] sm:h-[18rem] sm:w-[24rem] left-[49vw] sm:left-[45vw] overflow-hidden -translate-x-[50%]  pointer-events-none'>
             {[
-            "flamedesk.mp4",
-            "flickquery.mp4",
-            "webora.mp4",
-            "obys.mp4",
-            "ecomm.mp4",
-            "dribble.mp4",
+            "flamedesk.webm",
+            "flickquery.webm",
+            "webora.webm",
+            "obys.webm",
+            "ecomm.webm",
+            "dribble.webm",
           ].map((src, index) => (
             <motion.div
               key={index}

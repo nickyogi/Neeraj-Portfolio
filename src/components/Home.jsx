@@ -3,7 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Nav from "./Nav";
 import Grid from "./Grid";
-import { Loader } from "./Loader"
+import { Loader } from "./Loader";
 import FloatingTabsMenu from "./FloatingTabsMenu";
 
 // Lazy-loaded components
@@ -42,9 +42,9 @@ function Home() {
   return (
     <div id="Home">
       <Nav code={0} />
-      
+
       <FloatingTabsMenu />
-      
+
       <div className="w-full min-h-screen flex flex-col-reverse justify-end sm:flex-row fixed overflow-hidden">
         <span className="absolute -right-64 -top-72 sm:top-0 sm:right-0">
           <Grid />
@@ -98,7 +98,6 @@ function Home() {
               variants={fadeInAnimationVariants}
               className="w-full mt-3 sm:mt-5 flex items-center justify-center gap-5 sm:pr-16"
             >
- 
               <div className="p-2 cursor-pointer inline-block rounded-full border-[1px] border-zinc-100 hover:text-purple-600 hover:bg-white duration-200 transition-all">
                 <a
                   href="https://www.linkedin.com/in/neeraj-kumar-yogi/"
@@ -142,7 +141,6 @@ function Home() {
                   </svg>
                 </a>
               </div>
-          
             </motion.div>
 
             <motion.div
@@ -151,23 +149,40 @@ function Home() {
             >
               <TypeAnimation
                 sequence={[
-                  "Welcome to my portfolio", 2000,
-                  "I create Full Stack Applications ", 2000,
-                  "I'm skilled in HTML, CSS ", 2000,
-                  "I'm skilled in Javascript ", 2000,
-                  "I love to create great UI/UX ", 2000,
-                  "I'm skilled in React JS ", 2000,
-                  "I'm skilled in Express JS ", 2000,
-                  "I'm skilled in Node JS ", 2000,
-                  "I'm skilled in MongoDB ", 2000,
-                  "I love to create Web Applications ", 2000,
-                  "I'm skilled in SQL ", 2000,
-                  "I'm skilled in Tailwind CSS ", 2000,
-                  "I'm skilled in Wordpress ", 2000,
-                  "I rank websites using SEO ", 2000,
-                  "I can build Frontend ", 2000,
-                  "I can build Backend ", 2000,
-                  "I can build Databases ", 2000,
+                  "Welcome to my portfolio",
+                  2000,
+                  "I create Full Stack Applications ",
+                  2000,
+                  "I'm skilled in HTML, CSS ",
+                  2000,
+                  "I'm skilled in Javascript ",
+                  2000,
+                  "I love to create great UI/UX ",
+                  2000,
+                  "I'm skilled in React JS ",
+                  2000,
+                  "I'm skilled in Express JS ",
+                  2000,
+                  "I'm skilled in Node JS ",
+                  2000,
+                  "I'm skilled in MongoDB ",
+                  2000,
+                  "I love to create Web Applications ",
+                  2000,
+                  "I'm skilled in SQL ",
+                  2000,
+                  "I'm skilled in Tailwind CSS ",
+                  2000,
+                  "I'm skilled in Wordpress ",
+                  2000,
+                  "I rank websites using SEO ",
+                  2000,
+                  "I can build Frontend ",
+                  2000,
+                  "I can build Backend ",
+                  2000,
+                  "I can build Databases ",
+                  2000,
                 ]}
                 wrapper="span"
                 speed={40}

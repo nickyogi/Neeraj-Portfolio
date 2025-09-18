@@ -11,7 +11,7 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
       height: 40,
       width: 40,
       // borderRadius: "9999px",
-      transition: { type: "spring", duration: 0.4 },
+      transition: { type: "spring", duration: 0.5 },
     },
     open: {
       height: "auto",
@@ -22,7 +22,7 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: -20 }, // animate from above
+    hidden: { opacity: 0 }, // animate from above
     visible: (i) => ({
       opacity: 1,
       y: 0,
@@ -36,18 +36,18 @@ const FloatingTabsMenu = ({ code, projectsActive }) => {
       variants={containerVariants}
       animate={open ? "open" : "closed"}
       initial="closed"
-      className="absolute max-w-32 top-20 left-1 bg-zinc-900 shadow-xl overflow-hidden  text-white z-40 sm:hidden "
+      className="absolute max-w-32 top-24 left-4 bg-zinc-900 shadow-xl overflow-hidden text-white z-40 sm:hidden "
     >
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="sm:w-full flex items-center justify-center p-3 hover:bg-zinc-900 transition"
+        className="sm:w-full flex items-center justify-center p-1 z-50 hover:bg-zinc-900 transition"
       >
         {open ? (
           // Up arrow (close)
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
+            className="w-6 h-6 z-50"
             fill="currentColor"
             viewBox="0 0 24 24"
           >
