@@ -25,7 +25,7 @@ function Cards() {
 
   return (
     <div className='w-full bg-inherit pb-32 px-4'>
-      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row gap-4">
+      <div className="max-w-6xl lg:max-w-7xl  mx-auto flex flex-col-reverse md:flex-row gap-4 lg:gap-6">
         {cardData.map((item, index) => (
           <Card
             key={index}

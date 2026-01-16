@@ -51,59 +51,60 @@ function Projects() {
   scrollYProgress.on("change", (scrollVal) => {
 
     let val = Math.floor(scrollVal*100);
+    console.log(val)
 
     if(isMobile) {
-      if (val >= 25 && val < 39) {
+      if (val >= 15 && val < 22) {
         setPos(32.4 * 0 - 0 * 0.1);
         setHovered(0);
         active(0);
-      } else if (val >= 39 && val < 46) {
+      } else if (val >= 22 && val < 26) {
         setPos(32.4 * 1 - 1 * 0.1);
         setHovered(1);
         active(1);
-      } else if (val >= 46 && val < 53) {
+      } else if (val >= 26 && val < 30) {
         setPos(32.4 * 2 - 2 * 0.1);
         setHovered(2);
         active(2);
-      } else if (val >= 53 && val < 60) {
+      } else if (val >= 30 && val < 35) {
         setPos(32.4 * 3 - 3 * 0.1);
         setHovered(3);
         active(3);
-      } else if (val >= 60 && val < 67) {
+      } else if (val >= 35 && val < 40) {
         setPos(32.4 * 4 - 4 * 0.1);
         setHovered(4);
         active(4);
-      } else if (val >= 67) {
+      } else if (val >= 40) {
         setPos(32.4 * 5 - 5 * 0.1);
         setHovered(5);
         active(5);
       }    
     } else {
-      if (val >= 40 && val < 53) {
-  setPos(18 * 0);
-  setHovered(0);
-  active(0);
-} else if (val >= 53 && val < 59) {
-  setPos(18 * 1);
-  setHovered(1);
-  active(1);
-} else if (val >= 59 && val < 63) {
-  setPos(18 * 2);
-  setHovered(2);
-  active(2);
-} else if (val >= 63 && val < 70) {
-  setPos(18 * 3);
-  setHovered(3);
-  active(3);
-} else if (val >= 70 && val < 75) {
-  setPos(18 * 4);
-  setHovered(4);
-  active(4);
-} else if (val >= 75) {
-  setPos(18 * 5);
-  setHovered(5);
-  active(5);
-}
+      if (val >= 20 && val < 30) {
+        setPos(18 * 0);
+        setHovered(0);
+        active(0);
+      } else if (val >= 30 && val < 34) {
+        setPos(18 * 1);
+        setHovered(1);
+        active(1);
+      } else if (val >= 34 && val < 38) {
+        setPos(18 * 2);
+        setHovered(2);
+        active(2);
+      } else if (val >= 38 && val < 42) {
+        setPos(18 * 3);
+        setHovered(3);
+        active(3);
+      } else if (val >= 42 && val < 46) {
+        setPos(18 * 4);
+        setHovered(4);
+        active(4);
+      } else if (val >= 46) {
+        setPos(18 * 5);
+        setHovered(5);
+        active(5);
+      }
     }
     
   });
@@ -122,17 +123,17 @@ function Projects() {
     }, [hovered]);
     
   return (
-    <div className='relative w-full bg-inherit pt-10 sm:pt-20' >
+    <div className='relative w-full bg-inherit pt-10 sm:pt-20 ' >
 
         { data.map((val, index) => (
             <Project key={index} val={val} count={index} click={click} mover={mover} />
         ))}
-        <div className='absolute w-full h-full sm:mt-20 top-[8.5rem] sm:top-0 pointer-events-none'>
+        <div className='max-w-container mx-auto absolute w-full h-full sm:mt-20 top-[8.5rem] sm:top-0 pointer-events-none'>
           <motion.div 
           initial={{ y: pos, x: "-50%" }}
           animate={{y: pos + "rem"}}
           transition={{ease: [0.76, 0, 0.24, 1], duration : 0.5}}
-          className='absolute w-[22rem] h-[12rem] sm:h-[18rem] sm:w-[24rem] left-[49vw] sm:left-[45vw] overflow-hidden -translate-x-[50%]  pointer-events-none'>
+          className='absolute w-[22rem] h-[12rem] sm:h-[18rem] sm:w-[24rem] left-[49vw] sm:left-[45vw] xxl:left-[45vw] overflow-hidden -translate-x-[50%]  pointer-events-none'>
             {[
             "flamedesk.webm",
             "flickquery.webm",

@@ -175,7 +175,7 @@ function Skills() {
 
   return (
     <div id="Skills" className="w-full -mt-10 h-auto">
-      <div  className="relative max-w-6xl mx-auto text-[30vw] text-white font-semibold leading-none tracking-tight select-none text-center">
+      <div  className="relative max-w-6xl mx-auto text-[12rem] sm:text-[20rem] md:text-[25rem] lg:text-[30rem] text-white font-semibold leading-none tracking-tight select-none text-center">
         skills
         <div className="absolute Images w-full h-full top-0">
           {ImgData.map((item, index) => {
@@ -214,8 +214,8 @@ function Skills() {
         ))}
       </div>
 
-      <div ref={triggerRef} className="sm:min-h-[80vh] min-h-[60vh]">
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 sm:px-[5vw] pb-10 mt-10">
+      <div ref={triggerRef} className="sm:min-h-[80vh] min-h-[60vh] xxl:min-h-[30vw]">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 sm:px-12 lg:px-20 pb-10 mt-10">
           {skills.map((item, index) => {
             return (
               <motion.div

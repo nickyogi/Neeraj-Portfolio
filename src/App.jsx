@@ -41,12 +41,14 @@ function App() {
         >
           {loaderVisiability ? <Loader text="Hello !" /> : ""}
         </motion.div>
-        <Suspense fallback="Loading">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
+        <div className="w-full mx-auto">
+          <Suspense fallback="Loading">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </div>
       </CursorFollower>
     </div>
   );

@@ -26,8 +26,9 @@ function Marquees() {
             "/logoImages/marqueeLogo18.svg",
           ],
       ];
+
   return (
-    <div className='py-32 bg-inherit w-full' >
+    <div className='py-32 bg-inherit w-full xxxl:max-w-[50vw] mx-auto' >
         {images.map((elem, index) => {
             return <Marquee key={index} direction={ (index == 0) ? "left" : "right" } imgArr={elem} />
         })}

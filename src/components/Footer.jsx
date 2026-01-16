@@ -3,12 +3,12 @@ import { RevealLinks } from './RevealLinks'
 
 function Footer() {
   return (
-    <div className='w-full bg-inherit'>
-        <div className='max-w-6xl mx-auto py-5 sm:flex  gap-40'>
+    <div className='w-full bg-inherit max-w-container mx-auto'>
+        <div className=' max-w-6xl lg:max-w-7xl  mx-auto py-5 sm:flex gap-20 lg:gap-40'>
             <div className='sm:basis-1/2'>
-                <h1 className='text-[10rem] text-white font-semibold leading-none tracking-tight'><RevealLinks text="Neeraj" /></h1>
+                <h1 className='text-[10rem] lg:text-[12rem] text-white font-semibold leading-none tracking-tight'><RevealLinks text="Neeraj" /></h1>
             </div>
-            <div className='basis-1/3 text-white flex px-5 sm:px-0 gap-5 sm:gap-16 pt-12 sm:pt-5'>
+            <div className='basis-1/3 text-white flex px-5 sm:px-0 gap-5 sm:gap-10 lg:gap-16 pt-12 sm:pt-5'>
                 <div className='flex flex-col'>
                     <h5 className='capitalize text-sm text-zinc-500 mb-8'>Socials</h5>
                     {

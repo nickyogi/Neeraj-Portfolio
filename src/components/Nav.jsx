@@ -62,18 +62,18 @@ function Nav({code}) {
               );
             })}
           </div> */}
-      <div className=" sm:max-w-6xl mx-auto px-4 sm:px-2 py-5 flex items-center justify-between border-b-[1px] border-zinc-700 ">
+      <div className="sm:max-w-6xl lg:max-w-7xl xxl:max-w-container mx-auto px-4 sm:px-2 py-5 flex items-center justify-between border-b-[1px] border-zinc-700 ">
         <div className="navLeft flex items-center">
           <div className="logo flex items-center">
             
-              <img className="h-5 w-5" src="/Icons/logo-icon.png" />
+              <img className="h-5 w-5 lg:h-6 lg:w-6" src="/Icons/logo-icon.png" />
             
 
             {code == 1 && <section className='ml-2 mr-5' {...containerProps}>{indicatorEl}</section>}
 
-            {code == 0 && <h1 className="text-white font-semibold text-5 ml-2">Portfolio</h1>}
+            {code == 0 && <h1 className="text-white font-semibold text-base lg:text-lg ml-2">Portfolio</h1>}
           </div>
-          <div className="tabs hidden sm:flex items-center mx-20">
+          <div className="tabs hidden sm:flex items-center mx-10 lg:mx-20">
             {["Home", "Skills", "", "Projects"].map((item, index) => {
               return item.length == 0 ? (
                 <span
@@ -83,7 +83,7 @@ function Nav({code}) {
               ) : (
                 <a
                   key={index}
-                  className={`relative text-white text-s mx-5 flex items-center gap-1 ${(index == 3) ? `border-[1px] border-zinc-600 px-2 rounded ${projectsActive ? "bg-gradient-to-br from-purple-500 to-purple-800" : "bg-zinc-800"}` : ""}`}
+                  className={`relative text-white text-sm lg:text-base mx-3 lg:mx-5 flex items-center gap-1 ${(index == 3) ? `border-[1px] border-zinc-600 px-2 py-1 rounded ${projectsActive ? "bg-gradient-to-br from-purple-500 to-purple-800" : "bg-zinc-800"}` : ""}`}
                   href={`#${item}`}
                 >
                   { index == 3 && (
